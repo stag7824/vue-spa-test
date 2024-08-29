@@ -1,5 +1,5 @@
 import { fetchUsers, fetchUserById } from '../../services/ApiService';
-
+// import axios from 'axios';
 const state = {
   users: [],
   selectedUser: null
@@ -16,6 +16,7 @@ const mutations = {
 
 const actions = {
   async loadUsers({ commit }) {
+    // const response = axios.get("https://randomuser.me/api/?results=10")
     const users = await fetchUsers();
     commit('setUsers', users);
   },

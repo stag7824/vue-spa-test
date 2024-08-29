@@ -1,6 +1,7 @@
 <template>
   <div v-if="user">
     <h2>{{ user.name }}</h2>
+    <img :src="user.avatar" alt="User avatar" />
     <p><strong>Email:</strong> {{ user.email }}</p>
     <p><strong>Role:</strong> {{ user.role }}</p>
     <p><strong>Status:</strong> {{ user.status }}</p>
