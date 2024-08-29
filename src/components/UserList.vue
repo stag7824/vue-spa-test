@@ -1,20 +1,30 @@
 <template>
-  <div>
+  <div class="user-list-container">
     <div class="filter-bar">
-      <input v-model="searchQuery" placeholder="Search by query (e.g., role:admin status:active)" />
-      <select v-model="selectedRole">
+      <!-- Search Input -->
+      <input
+        v-model="searchQuery"
+        class="search-input"
+        placeholder="Search by query (e.g., role:admin status:active)"
+      />
+      
+      <!-- Role Dropdown -->
+      <select v-model="selectedRole" class="dropdown">
         <option value="">All Roles</option>
         <option value="admin">Admin</option>
         <option value="user">User</option>
       </select>
-      <select v-model="selectedStatus">
+      
+      <!-- Status Dropdown -->
+      <select v-model="selectedStatus" class="dropdown">
         <option value="">All Statuses</option>
         <option value="active">Active</option>
         <option value="inactive">Inactive</option>
       </select>
     </div>
+
+    <!-- User Cards -->
     <div class="user-list">
-      <!-- Make each UserCard clickable to navigate to the user's profile -->
       <UserCard
         v-for="user in filteredUsers"
         :key="user.id"
@@ -66,9 +76,71 @@ export default {
 };
 </script>
 
+
 <style scoped>
-/* Add cursor pointer to indicate clickable items */
+/* Container styling */
+.user-list-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Flexbox for layout */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Improved Search Input Styling */
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdown:hover, .dropdown:focus {
+  border-color: #4CAF50;
+  background-color: #e0f7e0;
+  outline: none;
+}
+
+/* User List Styling */
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Clickable User Card */
 .user-card-clickable {
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card-clickable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 </style>
