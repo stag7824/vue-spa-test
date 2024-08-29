@@ -9,7 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.37"
+    "@vue/test-utils": "^2.4.6",
+    "axios": "^1.7.5",
+    "element-plus": "^2.8.1",
+    "jest": "^29.7.0",
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.3",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
